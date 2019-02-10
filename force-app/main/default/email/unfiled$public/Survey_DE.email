@@ -1,0 +1,4 @@
+Hey {!Contact.FirstName},
+
+
+bitte fülle unsere Umfrage aus: http://n26.com/survey/{!Contact.Id}
