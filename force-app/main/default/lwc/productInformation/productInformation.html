@@ -1,0 +1,57 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+            <span class="slds-p-left_small">Product Information</span>
+            <span class="slds-m-left_small slds-badge slds-badge_inverse">{productType}</span>
+        </h3>
+
+        <lightning-formatted-number currency-code="EUR" format-style="currency" value={monthlyPayment}>
+        </lightning-formatted-number>
+
+        <div class="slds-m-left_small">
+            <ul class="slds-list_horizontal slds-has-dividers_right slds-has-block-links">
+                <li class="slds-item">Card Replacement Cost:</li>
+                <li class="slds-item">
+                    <lightning-formatted-number
+                        currency-code="EUR"
+                        format-style="currency"
+                        value={cardReplacementCost}>
+                    </lightning-formatted-number>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slds-m-left_small">
+            <ul class="slds-list_horizontal slds-has-dividers_right slds-has-block-links">
+                <li class="slds-item">Cost per Calendar Month:</li>
+                <li class="slds-item">
+                    <span if:true={isAvailable}>
+                        <lightning-formatted-number
+                            currency-code="EUR"
+                            format-style="currency"
+                            value={costPerMonth}>
+                        </lightning-formatted-number>
+                    </span>
+                    <span if:false={isAvailable}>N/a</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slds-m-left_small">
+            <ul class="slds-list_horizontal slds-has-dividers_right slds-has-block-links">
+                <li class="slds-item">ATM Fee in other currencies:</li>
+                <li class="slds-item">
+                    <span if:true={isFreeWithdrawal}>
+                        <lightning-formatted-number
+                            currency-code="EUR"
+                            format-style="currency"
+                            value={atmFeeInOtherCountries}>
+                        </lightning-formatted-number>
+                    </span>
+                    <span if:false={isFreeWithdrawal}>Free</span>
+                </li>
+            </ul>
+        </div>
+    </lightning-card>
+</template>
